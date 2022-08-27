@@ -6,6 +6,16 @@ public class DiningRoom {
     private String color;
     private int chairsCapacity;
 
+    public static class builder{
+
+        int windows;
+        public int windows(int i) {
+            this.windows=i;
+            return i;
+        }
+    }
+
+
     public int getWindows() {
         return windows;
     }

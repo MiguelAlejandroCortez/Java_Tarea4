@@ -5,6 +5,22 @@ public class BedRoom {
     private int height;
     private String color;
 
+    public static class builder{
+        BedSize bedSize;
+        boolean tv;
+        int width;
+        int height;
+        String color;
+
+        public BedSize bedSize(BedSize queen) {
+            this.bedSize = queen;
+            return bedSize;
+        }
+        public boolean tv(boolean a){
+            this.tv = a;
+            return a;
+        }
+    }
     public BedSize getBedSize() {
         return bedSize;
     }

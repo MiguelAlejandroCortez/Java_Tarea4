@@ -1,3 +1,5 @@
+import java.nio.channels.Pipe;
+
 public class Kitchen {
     private boolean stove;
     private boolean sink;
@@ -70,5 +72,33 @@ public class Kitchen {
 
     public void setColor(String color) {
         this.color = color;
+    }
+
+    public static class builder {
+        boolean stove;
+        boolean sink;
+        int windows;
+        boolean refrigerator;
+        boolean oven;
+        int width;
+        int height;
+        String color;
+        public Kitchen build() {
+            Kitchen kitchen = new Kitchen();
+            kitchen.setStove(this.stove);
+            kitchen.setSink(this.sink);
+            kitchen.setWindows(this.windows);
+            kitchen.setRefrigerator(this.refrigerator);
+            kitchen.setStove(this.stove);
+            kitchen.setOven(this.oven);
+            kitchen.setWidth(this.width);
+            kitchen.setHeight(this.height);
+            kitchen.setColor(this.color);
+            return kitchen;
+        }
+        public boolean stove(boolean b) {
+            this.stove=b;
+            return b;
+        }
     }
 }

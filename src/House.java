@@ -32,6 +32,9 @@ public class House{
             throw new RuntimeException("No se permiten mas BedRooms en este programa");
     }
 
+    public void setBedRoom(BedRoom bedRoom){
+        this.bedRooms = bedRooms;
+    }
     public Kitchen getKitchen() {
         return kitchen;
     }
@@ -70,5 +73,33 @@ public class House{
 
     public void setYard(Yard yard) {
         this.yard = yard;
+    }
+
+    static class Builder {
+        Kitchen kitchen;
+        DiningRoom diningRoom;
+        BedRoom bedRoom;
+
+        public Kitchen conKitchen(Kitchen kitchen) {
+            this.kitchen = kitchen;
+            return kitchen;
+        }
+        public Builder conDiningRoom(DiningRoom diningRoom) {
+            this.diningRoom = diningRoom;
+            return this;
+        }
+
+        public Builder conBedRoom(BedRoom bedRoom) {
+            this.bedRoom = bedRoom;
+            return this;
+        }
+
+        public House build() {
+            House house = new House();
+            house.setKitchen(this.kitchen);
+            house.setDiningRoom(this.diningRoom);
+            house.setBedRoom(this.bedRoom);
+            return house;
+        }
     }
 }
